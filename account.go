@@ -92,7 +92,10 @@ func (c *Client) ERC20Transfers(contractAddress, address *string, startBlock *in
 		"page":   page,
 		"offset": offset,
 	}
-	compose(param, "contractaddress", contractAddress)
+
+	if contractAddress != nil {
+		compose(param, "contractaddress", contractAddress)
+	}
 	compose(param, "address", address)
 	compose(param, "startblock", startBlock)
 	compose(param, "endblock", endBlock)
@@ -116,7 +119,9 @@ func (c *Client) ERC721Transfers(contractAddress, address *string, startBlock *i
 		"page":   page,
 		"offset": offset,
 	}
-	compose(param, "contractaddress", contractAddress)
+	if contractAddress != nil {
+		compose(param, "contractaddress", contractAddress)
+	}
 	compose(param, "address", address)
 	compose(param, "startblock", startBlock)
 	compose(param, "endblock", endBlock)
@@ -140,7 +145,9 @@ func (c *Client) ERC1155Transfers(contractAddress, address *string, startBlock *
 		"page":   page,
 		"offset": offset,
 	}
-	compose(param, "contractaddress", contractAddress)
+	if contractAddress != nil {
+		compose(param, "contractaddress", contractAddress)
+	}
 	compose(param, "address", address)
 	compose(param, "startblock", startBlock)
 	compose(param, "endblock", endBlock)
