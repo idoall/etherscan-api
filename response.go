@@ -32,7 +32,7 @@ type AccountBalance struct {
 
 // NormalTx holds info from normal tx query
 type NormalTx struct {
-	BlockNumber       int     `json:"blockNumber,string"`
+	BlockNumber       int64   `json:"blockNumber,string"`
 	TimeStamp         Time    `json:"timeStamp"`
 	Hash              string  `json:"hash"`
 	Nonce             int     `json:"nonce,string"`
@@ -41,20 +41,22 @@ type NormalTx struct {
 	From              string  `json:"from"`
 	To                string  `json:"to"`
 	Value             *BigInt `json:"value"`
-	Gas               int     `json:"gas,string"`
+	Gas               int64   `json:"gas,string"`
 	GasPrice          *BigInt `json:"gasPrice"`
 	IsError           int     `json:"isError,string"`
 	TxReceiptStatus   string  `json:"txreceipt_status"`
 	Input             string  `json:"input"`
 	ContractAddress   string  `json:"contractAddress"`
-	CumulativeGasUsed int     `json:"cumulativeGasUsed,string"`
-	GasUsed           int     `json:"gasUsed,string"`
+	CumulativeGasUsed int64   `json:"cumulativeGasUsed,string"`
+	GasUsed           int64   `json:"gasUsed,string"`
 	Confirmations     int     `json:"confirmations,string"`
+	MethodId          string  `json:"methodId"`
+	FunctionName      string  `json:"functionName"`
 }
 
 // InternalTx holds info from internal tx query
 type InternalTx struct {
-	BlockNumber     int     `json:"blockNumber,string"`
+	BlockNumber     int64   `json:"blockNumber,string"`
 	TimeStamp       Time    `json:"timeStamp"`
 	Hash            string  `json:"hash"`
 	From            string  `json:"from"`
@@ -63,8 +65,8 @@ type InternalTx struct {
 	ContractAddress string  `json:"contractAddress"`
 	Input           string  `json:"input"`
 	Type            string  `json:"type"`
-	Gas             int     `json:"gas,string"`
-	GasUsed         int     `json:"gasUsed,string"`
+	Gas             int64   `json:"gas,string"`
+	GasUsed         int64   `json:"gasUsed,string"`
 	TraceID         string  `json:"traceId"`
 	IsError         int     `json:"isError,string"`
 	ErrCode         string  `json:"errCode"`
@@ -72,10 +74,10 @@ type InternalTx struct {
 
 // ERC20Transfer holds info from ERC20 token transfer event query
 type ERC20Transfer struct {
-	BlockNumber       int     `json:"blockNumber,string"`
+	BlockNumber       int64   `json:"blockNumber,string"`
 	TimeStamp         Time    `json:"timeStamp"`
 	Hash              string  `json:"hash"`
-	Nonce             int     `json:"nonce,string"`
+	Nonce             int64   `json:"nonce,string"`
 	BlockHash         string  `json:"blockHash"`
 	From              string  `json:"from"`
 	ContractAddress   string  `json:"contractAddress"`
@@ -85,20 +87,20 @@ type ERC20Transfer struct {
 	TokenSymbol       string  `json:"tokenSymbol"`
 	TokenDecimal      uint8   `json:"tokenDecimal,string"`
 	TransactionIndex  int     `json:"transactionIndex,string"`
-	Gas               int     `json:"gas,string"`
+	Gas               int64   `json:"gas,string"`
 	GasPrice          *BigInt `json:"gasPrice"`
-	GasUsed           int     `json:"gasUsed,string"`
-	CumulativeGasUsed int     `json:"cumulativeGasUsed,string"`
+	GasUsed           int64   `json:"gasUsed,string"`
+	CumulativeGasUsed int64   `json:"cumulativeGasUsed,string"`
 	Input             string  `json:"input"`
 	Confirmations     int     `json:"confirmations,string"`
 }
 
 // ERC721Transfer holds info from ERC721 token transfer event query
 type ERC721Transfer struct {
-	BlockNumber       int     `json:"blockNumber,string"`
+	BlockNumber       int64   `json:"blockNumber,string"`
 	TimeStamp         Time    `json:"timeStamp"`
 	Hash              string  `json:"hash"`
-	Nonce             int     `json:"nonce,string"`
+	Nonce             int64   `json:"nonce,string"`
 	BlockHash         string  `json:"blockHash"`
 	From              string  `json:"from"`
 	ContractAddress   string  `json:"contractAddress"`
@@ -108,20 +110,20 @@ type ERC721Transfer struct {
 	TokenSymbol       string  `json:"tokenSymbol"`
 	TokenDecimal      uint8   `json:"tokenDecimal,string"`
 	TransactionIndex  int     `json:"transactionIndex,string"`
-	Gas               int     `json:"gas,string"`
+	Gas               int64   `json:"gas,string"`
 	GasPrice          *BigInt `json:"gasPrice"`
-	GasUsed           int     `json:"gasUsed,string"`
-	CumulativeGasUsed int     `json:"cumulativeGasUsed,string"`
+	GasUsed           int64   `json:"gasUsed,string"`
+	CumulativeGasUsed int64   `json:"cumulativeGasUsed,string"`
 	Input             string  `json:"input"`
 	Confirmations     int     `json:"confirmations,string"`
 }
 
 // ERC1155Transfer holds info from ERC1155 token transfer event query
 type ERC1155Transfer struct {
-	BlockNumber       int     `json:"blockNumber,string"`
+	BlockNumber       int64   `json:"blockNumber,string"`
 	TimeStamp         Time    `json:"timeStamp"`
 	Hash              string  `json:"hash"`
-	Nonce             int     `json:"nonce,string"`
+	Nonce             int64   `json:"nonce,string"`
 	BlockHash         string  `json:"blockHash"`
 	From              string  `json:"from"`
 	ContractAddress   string  `json:"contractAddress"`
@@ -132,10 +134,10 @@ type ERC1155Transfer struct {
 	TokenDecimal      uint8   `json:"tokenDecimal,string"`
 	TokenValue        uint8   `json:"tokenValue,string"`
 	TransactionIndex  int     `json:"transactionIndex,string"`
-	Gas               int     `json:"gas,string"`
+	Gas               int64   `json:"gas,string"`
 	GasPrice          *BigInt `json:"gasPrice"`
-	GasUsed           int     `json:"gasUsed,string"`
-	CumulativeGasUsed int     `json:"cumulativeGasUsed,string"`
+	GasUsed           int64   `json:"gasUsed,string"`
+	CumulativeGasUsed int64   `json:"cumulativeGasUsed,string"`
 	Input             string  `json:"input"`
 	Confirmations     int     `json:"confirmations,string"`
 }
